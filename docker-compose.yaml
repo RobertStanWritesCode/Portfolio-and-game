@@ -1,0 +1,7 @@
+services:
+  front-page:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend/front-page/data:/usr/share/nginx/html:ro
