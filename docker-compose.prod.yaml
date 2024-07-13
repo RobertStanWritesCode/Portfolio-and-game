@@ -3,10 +3,8 @@ services:
     build:
       context: ./frontend/nextjs-frontend-main
       dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend/nextjs-frontend-main:/app
-      - /app/node/modules
-    environment:
-      - NODE_ENV=production
+    command: npm start
