@@ -12,6 +12,7 @@ WORKDIR /app
 COPY --from=dependencies /app/node_modules ./node_modules
 #copy whole of app
 COPY . .
+RUN npm run build
 
 #create production image
 FROM node:22-slim AS runner
@@ -23,4 +24,3 @@ COPY --from=builder /app/public ./public
 #install production dependencies
 RUN npm install --production --frozen-lockfile
 EXPOSE 3000
-
